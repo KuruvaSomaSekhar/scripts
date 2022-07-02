@@ -8,5 +8,10 @@ pipeline {
                 sh "ls -lart ./*"
             }
         }
+        stage("Build Code"){
+            steps {
+                mvn clean package
+            }
+        }
     }
 }

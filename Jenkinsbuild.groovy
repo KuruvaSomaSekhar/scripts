@@ -14,5 +14,11 @@ pipeline {
                 sh "ls -l target/"
             }
         }
+        stage("Upload artifacts"){
+            steps {
+                sh "aws s3 cp target/hello-$BUILD_NUMBER.war s3://june22artifacts/${env.JOB_NAME}/develop/$BUILD_NUMBER/"
+                sh "aws s3 ls s3://june22artifacts/${env.JOB_NAME}/develop/$BUILD_NUMBER/ "
+            }
+        }
     }
 }

@@ -10,7 +10,7 @@ pipeline {
         }
         stage("Build Code"){
             steps {
-                mvn clean package
+                sh "mvnn clean package"
             }
         }
     }

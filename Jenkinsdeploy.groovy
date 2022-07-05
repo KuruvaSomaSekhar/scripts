@@ -18,7 +18,7 @@ pipeline {
         }
         stage("Deploy artifacts"){
             steps {
-                sh """
+                sh '''
 
                         IFS=',' read -r -a MYSERVERS <<< $ENVIRONMENT
                         for IP in ${MYSERVERS[@]}
@@ -32,7 +32,7 @@ pipeline {
 
                                 #scp -i /tmp/june22_ohio.pem hello-${BUILD_NUMBER}.war ec2-user@${ENVIRONMENT}:/tmp/
                                 #ssh -i /tmp/june22_ohio.pem ec2-user@${ENVIRONMENT} "sudo cp /tmp/hello-${BUILD_NUMBER}.war /var/lib/tomcat/webapps/"
-                    """
+                    '''
             }
         }
     }

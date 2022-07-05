@@ -7,7 +7,7 @@ pipeline {
     }
     stages {
         stage("Download artifacts") {
-            step {
+            steps {
                 sh '''
                  aws s3 ls s3://june22artifacts/${PROJECT_NAME}/${SOURCE_CODE_BRANCH}/${BUILD_NUMBER}/
                  aws s3 cp s3://june22artifacts/${PROJECT_NAME}/${SOURCE_CODE_BRANCH}/${BUILD_NUMBER}/hello-${BUILD_NUMBER}.war .
